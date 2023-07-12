@@ -1,3 +1,4 @@
+---
 - name: Listen for storage-monitor events
   hosts: all
   sources:
