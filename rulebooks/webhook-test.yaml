@@ -7,12 +7,12 @@
       port: 5000
   rules:
   - name: Rule - Print event information
-  condition: event.meta.headers is defined
-  action:
-    run_job_template:
-      name: StorageRemediation
-      organization: Default
-      job_args:
-        extra_vars:
-           message: from eda
-           sleep: 1
+    condition: event.meta.headers is defined
+    action:
+      run_job_template:
+        name: StorageRemediation
+        organization: Default
+        job_args:
+          extra_vars:
+            message: from eda
+            sleep: 1
