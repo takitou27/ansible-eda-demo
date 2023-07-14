@@ -1,0 +1,18 @@
+---
+- name: Test Event Node Up
+  hosts: all
+  sources:
+    - ansible.eda.aws_sqs_queue:
+        access_key: "{{ access_key }}"
+        secret_key: "{{ secret_key }}"
+        region: "eu-west-1"
+        name: "edaup"
+        delay_seconds: 5
+
+  rules:
+  - name: node-up
+    condition: 1 == 1
+    action:
+      run_job_template:
+        name: Demo Job Template
+        organization: Default
