@@ -15,5 +15,3 @@
       run_job_template:
         name: Demo Job Template
         organization: Default
-        job_args:
-          limit: "{{ event.payload.hosts }}"
