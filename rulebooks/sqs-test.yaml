@@ -1,0 +1,19 @@
+---
+- name: Test Event
+  hosts: all
+  sources:
+    - ansible.eda.aws_sqs_queue:
+        access_key: "{{ aws_access_key }}"
+        secret_key: "{{ aws_secret_key }}"
+        region: "{{ region }}"
+        name: "{{ queue_name }}"
+
+  rules:
+  - name: test
+    condition: 1 == 1
+    action:
+      run_job_template:
+        name: Demo Job Template
+        organization: Default
+        job_args:
+          limit: "{{ event.payload.hosts }}"
