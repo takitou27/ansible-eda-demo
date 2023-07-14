@@ -1,5 +1,5 @@
 ---
-- name: Test Event Snmptrap
+- name: Test Event Snmp
   hosts: all
   sources:
     - ansible.eda.aws_sqs_queue:
