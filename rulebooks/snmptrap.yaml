@@ -14,5 +14,5 @@
     condition: 1 == 1
     action:
       run_job_template:
-        name: Demo Job Template
+        name: Arista Config Checkin
         organization: Default
