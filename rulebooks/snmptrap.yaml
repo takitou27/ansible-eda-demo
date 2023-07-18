@@ -18,4 +18,4 @@
         organization: Default
         job_args:
           extra_vars:
-            targethost: "{{ event.body.Message }}"
+            targethost: "{{ event.body.body.Message }}"
