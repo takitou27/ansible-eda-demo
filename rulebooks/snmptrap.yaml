@@ -16,3 +16,6 @@
       run_job_template:
         name: Arista Config Checkin
         organization: Default
+        job_args:
+          extra_vars:
+            targethost: "{{ event.body.Message }}"
