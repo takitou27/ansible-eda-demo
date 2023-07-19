@@ -1,0 +1,21 @@
+---
+- name: OSPF Snmptrap Event Recvd
+  hosts: all
+  sources:
+    - ansible.eda.aws_sqs_queue:
+        access_key: "{{ access_key }}"
+        secret_key: "{{ secret_key }}"
+        region: "eu-west-1"
+        name: "edasnmptrap"
+        delay_seconds: 5
+
+  rules:
+  - name: Diag Network Topology
+    condition: 1 == 1
+    action:
+      run_job_template:
+        name: Diag Network Topology
+        organization: Default
+        job_args:
+          extra_vars:
+            targethost: "{{ event.body.Message }}"
